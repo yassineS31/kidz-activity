@@ -1,53 +1,63 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import Link from 'next/link'; // Importation du composant Link de Next.js
+import { Calendar } from './ui/calendar';
+import { Separator } from './ui/separator';
 
 const SidebarRight: React.FC = () => {
+const [isCollapsed, setIsCollapsed] = useState(false);
+
+const toggleSidebar = () => {
+    setIsCollapsed((prev) => !prev);
+};
+
     return (
-        <div className="m-4 w-1/5 border-solid border-2 drop-shadow-lg rounded-lg" >
-            <h2 className='font-bold'>Navigation</h2>
-            <ul>
-                <li className='my-5 text-emerald-800 font-bold'>
-                    <Link href="/">Accueil</Link>
-                </li>
-                <li className='my-5'>
-                    <Link href="/ActivitiesList">Activité</Link>
-                </li>
-                <li className='my-5'>
-                    <Link href="/Schedule">Planning</Link>
-                </li>
-                <li className='my-5'>
-                    <Link href="/Groups">Groupes et animateurs</Link>
-                </li>
-                <li className='my-5'>
-                    <Link href="/Profil">Mon profil</Link>
-                </li>
-                <li className='my-5'>
-                    <Link href="/MyChildrens">Mes enfants</Link>
-                </li>
-            </ul>
-            <h2 className='font-bold'>Explorer</h2>
-            <ul>
-                <li className='my-5'>
-                    <Link href="/SharingMoments">Moments partagés</Link>
-                </li>
-                <li className='my-5'>
-                    <Link href="/ClassementAndBadge">Classement et badge</Link> {/* Vous pouvez modifier l'URL si nécessaire */}
-                </li>
-                <li className='my-5'>
-                    <Link href="/Events">Événements</Link> {/* De même, ajustez le nom de la route si nécessaire */}
-                </li>
-                <li className='my-5'>
-                    <Link href="/BlogAndConseils">Blog & Conseils</Link> {/* Ajustez si nécessaire */}
-                </li>
-                <li className='my-5'>
-                    <Link href="/Recommendations">Recommandation</Link> {/* Idem */}
-                </li>
-                <li className='mt-[150px] mb-5'>
-                    <Link href="/Logout">Déconnexion</Link>
-                </li>
-            </ul>
-        </div>
-    );
+        <div
+            className={`transition-all duration-300 ${
+                isCollapsed ? 'w-[100px]' : 'w-1/5'
+            } m-4 drop-shadow-lg rounded-lg flex flex-col items-center bg-white`}
+        >
+      {/* Icone de réduction */}
+    <svg
+        onClick={toggleSidebar}
+        className="my-5 ml-2 self-start cursor-pointer"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2 26L9.5 18.5M9.5 18.5V24.5M9.5 18.5H3.5M26 2L18.5 9.5M18.5 9.5V3.5M18.5 9.5H24.5"
+          stroke="#333333"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+
+      {/* Contenu de la sidebar */}
+      <Calendar className={`my-5 ${ isCollapsed ? 'hidden' : 'flex'}`} />
+      <h2 className="font-bold my-6 flex items-center gap-2">Événements</h2>
+      <ul>
+        {[
+          { id: 1, name: 'Chasse au trésor', date: '08 Avril 2025' },
+          { id: 2, name: 'Lecture collective', date: '05 Juin 2025' },
+          { id: 3, name: 'La nuit des étoiles', date: '23 Juillet 2025' },
+          { id: 4, name: 'VTT avec parents', date: '11 Juillet 2025' },
+          { id: 5, name: 'Atelier créatif', date: '17 Août 2025' },
+        ].map((event) => (
+          <Link href="#" key={event.id}>
+            <li className="my-3 flex flex-col hover:bg-emerald-300">
+              <p>{event.id}. {event.name}</p>
+              <span className="text-center">{event.date}</span>
+              <Separator />
+            </li>
+          </Link>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default SidebarRight;
