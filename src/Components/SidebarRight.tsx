@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link'; // Importation du composant Link de Next.js
 import { Calendar } from './ui/calendar';
 import { Separator } from './ui/separator';
-
+import { Button } from './ui/button';
 const SidebarRight: React.FC = () => {
 const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -48,7 +48,7 @@ const toggleSidebar = () => {
           { id: 5, name: 'Atelier créatif', date: '17 Août 2025' },
         ].map((event) => (
           <Link href="#" key={event.id}>
-            <li className="my-3 flex flex-col hover:bg-emerald-300">
+            <li className="my-3 flex flex-col">
               <p>{event.id}. {event.name}</p>
               <span className="text-center">{event.date}</span>
               <Separator />
@@ -56,6 +56,10 @@ const toggleSidebar = () => {
           </Link>
         ))}
       </ul>
+      <Button variant="greenway" size="rounded">Voir plus</Button>
+      <p className='my-4'>Animateurs populaire</p>
+      {/* Suite à construire : Liste des animateurs populaires (photo + nom ) Btn "voir plus" Liste des suivi (photo + nom ) 
+      Btn "voir plus" Liste des recommandation (photo + nom ) Btn "voir plus" */}
     </div>
   );
 };
