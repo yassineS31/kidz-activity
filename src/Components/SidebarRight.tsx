@@ -20,7 +20,9 @@ const toggleSidebar = () => {
       {/* Icone de réduction */}
     <svg
         onClick={toggleSidebar}
-        className="my-5 ml-2 self-start cursor-pointer"
+        className={`${
+          isCollapsed ? "hidden" : "size-7"
+        }  my-5 mr-2 ml-2 cursor-pointer self-start`}
         width="28"
         height="28"
         viewBox="0 0 28 28"
@@ -35,6 +37,23 @@ const toggleSidebar = () => {
           strokeLinejoin="round"
         />
       </svg>
+      <svg
+            onClick={toggleSidebar}
+            className={`${isCollapsed ? 'size-5' : 'hidden'} my-5 ml-2 mr-auto cursor-pointer` }
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 17H1M1 17V13M1 17L7 11M13 1H17M17 1V5M17 1L11 7"
+              stroke="#333333"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
 
       {/* Contenu de la sidebar */}
       <Calendar className={`my-5 ${ isCollapsed ? 'hidden' : 'flex'}`} />

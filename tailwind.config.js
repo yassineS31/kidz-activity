@@ -3,9 +3,9 @@ module.exports = {
     content: ['./pages/**/*.{js,ts,jsx,tsx}',
             './components/**/*.{js,ts,jsx,tsx}',
             './src/**/*.{js,ts,jsx,tsx}',
-          ],
-  theme: {
-  	extend: {
+        ],
+	theme: {
+  		extend: {
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -55,5 +55,5 @@ module.exports = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+plugins: ["tailwindcss-animate"],
 };

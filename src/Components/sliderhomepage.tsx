@@ -57,12 +57,12 @@ export function ScrollAreaHorizontal() {
             height={200}
             />
 
-                {/* Titre */}
+                {/* Title */}
                 <div className="absolute top-0 left-0 w-full bg-black/50 py-1 text-center text-sm font-semibold text-yellow-400 hover:text-yellow-300">
                 {ImageActivity.title}
                 </div>
 
-                {/*Bouton*/}
+                {/*Button*/}
                 <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent py-4 text-center">
                 <button className="text-yellow-400 hover:text-yellow-300 text-sm font-bold">
                     En savoir plus
