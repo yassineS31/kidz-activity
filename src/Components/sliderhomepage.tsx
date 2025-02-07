@@ -36,13 +36,13 @@ export const works: ImageActivity[] = [
 
 export function ScrollAreaHorizontal() {
     return (
-        <ScrollArea className="relative h-80 overflow-hidden rounded-xl border bg-white shadow-md">
+        <ScrollArea className="relative h-78 overflow-hidden rounded-xl border bg-white shadow-md">
             
-            <div className="flex justify-between p-3">
+            <div className="flex justify-between p-2">
                 <p> Top activité</p>
                 <p>Voir tout</p>
             </div>
-        <div className="flex w-max gap-2 p-4 mt-4">
+        <div className="flex w-max gap-2 p-4 ">
             {works.map((ImageActivity, index) => (
             <div
                 key={index}
