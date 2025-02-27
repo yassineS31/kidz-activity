@@ -4,6 +4,7 @@ import "./globals.css";
 import SidebarLeft from "@/Components/SidebarLeft";
 import SidebarRight from "@/Components/SidebarRight";
 import ProfilCard from "@/Components/ProfilCard";
+import SearchBar from "@/Components/SearchBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable}w-full antialiased`}
       >
-        <div>
+        <div className="flex w-full">
+        <ProfilCard/>
+          <SearchBar/>
           <ProfilCard/>
         </div>
         <div className="flex w-full">
