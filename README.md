@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+/!\ Projet en cours de développement /!\
 
-## Getting Started
+Projet Kidz-Activity : Trouvez des activités proche de chez vous ! 
 
-First, run the development server:
+Kidz met en relation parents et animateurs de confiance pour accompagner et encadrer vos enfants à leurs activités favorites !  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Vue accueil :
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Accueil- Desktop(1)](https://github.com/user-attachments/assets/674ec58a-fc0a-40c9-94a6-13552c5b46ab)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Vue profil parent : 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![Profil - Desktop](https://github.com/user-attachments/assets/ba4e72e1-10d0-4997-8e9f-ca0951c75aab)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+Vue profil animateur : 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Profil Animateur - Desktop](https://github.com/user-attachments/assets/24d35065-ef31-455f-96b9-d11017622cc0)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+Le projet : 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Système de recherche d'activité ( filtre : catégorie,age,prix,secteur géographique )
+- Description de chaque activité ( Date, heure, lieu, nombre d'enfant max, prix, détails spécifiques..)
+- Système de reservation en ligne
+- Système de paiemment en ligne (API)
+- Profil parent ( qui contient une section avec un ou plusieurs enfant cf capture)
+- Profil animateur (cf capture)
+- Calendrier des activité
+- Agenda des activité reservés
+- Evennement (possibilité de créer ou rejoindre un évenemment )
+- Système de messagerie interne
+    et bien d'autres features !
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  Stack :
+  NextJS Tailwind NestJS SQL Redux Socket.io et pleins d'autres !
