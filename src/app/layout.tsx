@@ -5,6 +5,7 @@ import SidebarLeft from "@/Components/SidebarLeft";
 import SidebarRight from "@/Components/SidebarRight";
 import ProfilCard from "@/Components/ProfilCard";
 import SearchBar from "@/Components/SearchBar";
+import LogoCard from "@/Components/Logo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,12 +28,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body
         className={`${geistSans.variable} ${geistMono.variable}w-full antialiased`}
       >
-        <div className="flex w-full">
-        <ProfilCard/>
+        <div className="flex w-full items-center">
+        <LogoCard/>
           <SearchBar/>
           <ProfilCard/>
         </div>
