@@ -75,6 +75,12 @@ const CardActivity = ({ id, title, categorie,price,user,description,time,index }
         <p className={`${textColor} text-sm font-semibold`}>{user}</p>
         <Button variant="greenway" size="small">Reserver</Button>
         </div>
+        <div className="flex justify-between items-center mt-2">
+            <p className="text-[10px] font-medium" >Prix</p>
+            <p className="text-xs">35€</p>
+        </div>
+        <p className="my-3 text-sm font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+        <p className="text-sm font-semibold mt-6">Marie Manoirs </p>
     </div>
     </Link>
 </div>
