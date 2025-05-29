@@ -13,6 +13,38 @@ body{
   height: 24px;
 }
 
+/* Texte purple */
+.text-purple {
+  color: #5248B5; /* Couleur violet */
+}
+.text-red{
+  color: #CF3881; /* Couleur rouge */
+}
+.text-green{
+  color: #1F7B8F; /* Couleur vert */
+}
+.text-orange{
+  color: #1F7B8F; /* Couleur orange */
+}
+/* Background color */
+.bg-purple {
+  background-color: #5248B5; /* Couleur violet */
+}
+
+
+.bg-purple-light {
+  background-color: #F0EEFD; /* Couleur violet clair */
+}
+.bg-red-light{
+  background-color: #FFEBF5; /* Couleur rouge clair */
+}
+.bg-green-light{
+  background-color: #DDFAEF; /* Couleur vert clair */
+}
+.bg-orange-light{
+  background-color: #FFF0ED; /* Couleur orange clair */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

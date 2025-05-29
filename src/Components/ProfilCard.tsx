@@ -13,11 +13,13 @@ return (
         href="/profil"
         className="flex  w-full justify-evenly"
         >
-        <Image src={"/images/baby-foot.jpg"} alt="image profil" width={100} height={100} className="rounded-xl h-24 w-24"></Image>
+        <Image src={"/assets/images/baby-foot.jpg"} alt="image profil" width={85} height={85} className="mr-3 rounded-xl h-24 w-24"></Image>
         <div className=" flex flex-col justify-around">
-            <p className="text-center font-semibold">Arthur Immo</p>
-            <div className="mt-5"> 
-                <p className="text-center self-end">icon1 icon2 icon3</p>
+            <p className="text-center font-semibold text-[#5248B5]">Arthur Immo</p>
+            <div className="flex justify-between mt-5"> 
+            <Image src={"/assets/mail.svg"} alt="image profil" width={24} height={24} className="rounded-xl "></Image>
+            <Image src={"/assets/notifications.svg"} alt="image profil" width={24} height={24} className="rounded-xl "></Image>
+            <Image src={"/assets/settings.svg"} alt="image profil" width={24} height={24} className="rounded-xl "></Image>
             </div>
         </div>
         </Link>

@@ -8,12 +8,12 @@ const LogoCard
 
 return (
 
-    <div className=" flex items-center justify-center w-1/5 h-32 mx-4 my-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"> 
+    <div className=" flex items-center justify-center w-1/5 h-32 mx-4 my-2"> 
         <Link
-        href="/accueil"
+        href="/"
         className="flex  w-full justify-evenly"
         >
-        <Image src={"/images/Logo.png"} alt="image profil" width={100} height={100} className="rounded-xl h-24 w-24"></Image>
+        <Image src={"/assets/images/Logo.png"} alt="image profil" width={250} height={120} className="rounded-xl h-[120px] w-[250px]"></Image>
         </Link>
     </div>
 

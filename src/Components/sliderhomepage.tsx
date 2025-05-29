@@ -9,27 +9,27 @@ export interface ImageActivity {
 export const works: ImageActivity[] = [
   {
     title: "Cuisine",
-    imageUrl:"/images/cook.jpg",
+    imageUrl:"/assets/images/cook.jpg",
   },
   {
     title: "Art",
-    imageUrl: "/images/museum.jpg",
+    imageUrl: "/assets/images/museum.jpg",
   },
   {
     title: "Peinture",
-    imageUrl: "/images/painting.jpg",
+    imageUrl: "/assets/images/painting.jpg",
   },
   {
     title: "Lecture",
-    imageUrl: "/images/books.jpg",
+    imageUrl: "/assets/images/books.jpg",
   },
   {
     title: "Football",
-    imageUrl: "/images/baby-foot.jpg",
+    imageUrl: "/assets/images/baby-foot.jpg",
   },
   {
     title: "VTT",
-    imageUrl: "/images/biking.jpg",
+    imageUrl: "/assets/images/biking.jpg",
   }
 
 ];

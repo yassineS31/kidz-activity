@@ -3,10 +3,9 @@
 import * as React from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { DayPicker } from "react-day-picker"
-
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "./button"
-
+import { useState } from "react"
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
 function Calendar({
@@ -14,11 +13,15 @@ function Calendar({
   classNames,
   showOutsideDays = true,
   ...props
+  
 }: CalendarProps) {
+    const [isCollapsed] = useState(false);
+    
+
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      className={cn("p-3", className)}
+      className={cn("p-3",className,  isCollapsed ? "hidden":"")}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 justify-center ",
         month: "space-y-4",
