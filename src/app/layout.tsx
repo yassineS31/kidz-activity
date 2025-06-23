@@ -33,13 +33,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable}w-full antialiased`}
       >
         <div className="flex w-full items-center">
-        <LogoCard/>
+          <LogoCard/>
           <SearchBar/>
           <ProfilCard/>
         </div>
         <div className="flex w-full">
         <SidebarLeft/>
-        {children}
+          {children}
         <SidebarRight/>
         </div>
       </body>

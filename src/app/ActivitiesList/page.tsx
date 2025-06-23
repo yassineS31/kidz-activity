@@ -10,6 +10,7 @@ const activities = [
     { id: 3,user:'Thomas Levier', title: 'Peinture', categorie: 'art',price:'15',time:"14:00 - 17:00,",description:"Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." },
     { id: 4,user:'Thomas Levier', title: 'Peinture', categorie: 'art',price:'15',time:"14:00 - 17:00,",description:"Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." },
     { id: 5,user:'Thomas Levier', title: 'Peinture', categorie: 'art',price:'15',time:"14:00 - 17:00,",description:"Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." },
+    { id: 6,user:'Thomas Levier', title: 'Peinture', categorie: 'art',price:'15',time:"14:00 - 17:00,",description:"Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." },
   ];
   
 const ActiviteListPage = () => {
@@ -24,7 +25,7 @@ const ActiviteListPage = () => {
 
     return (
         <div className=" flex-1 items-center justify-center my-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"> 
-            <h1>Voici la liste des activités proposés par nos adhérents ! </h1>
+            <h1 className="my-4 mx-4">Voici la liste des activités proposés par nos adhérents ! </h1>
             {/* Badge section */}
             <div className="w-full ">
 
