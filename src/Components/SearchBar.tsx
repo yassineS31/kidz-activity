@@ -127,8 +127,8 @@ const SearchBar = () => {
       const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/search`, {
         params: {
           query,
-          profiles: selectedProfiles,
-          prices: selectedPrices,
+          profiles: selectedProfiles.join(','),
+          prices: selectedPrices.join(''),
           limit: 10
         },
         signal: abortControllerRef.current.signal
@@ -142,7 +142,7 @@ const SearchBar = () => {
       
     } catch (error) {
       if (axios.isCancel(error)) {
-        return; // Requête annulée, ne pas traiter l'erreur
+        return;
       }
       console.error("Erreur lors de la recherche:", error);
       setError("Erreur lors de la recherche");
@@ -244,7 +244,7 @@ const SearchBar = () => {
     searchInputRef.current?.focus();
   }, []);
 
-  // Highlight du terme recherché
+  // Surlignement du terme recherché
   const highlightMatch = useCallback((text: string, query: string) => {
     if (!query) return escapeHtml(text);
     const regex = new RegExp(`(${escapeHtml(query)})`, 'gi');
@@ -265,6 +265,7 @@ const SearchBar = () => {
           return (
             <div
               key={`${result.type}-${result.id}`}
+              data-cy="search-result"
               onClick={() => handleResultClick(result)}
               className={`px-3 py-2 hover:bg-gray-50 cursor-pointer ${
                 globalIndex === selectedIndex ? 'bg-purple-50' : ''
@@ -312,7 +313,7 @@ const SearchBar = () => {
   }, [searchResults, selectedIndex, handleResultClick, highlightMatch, debouncedSearchTerm]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4">
+    <div className="flex-1  mx-auto mt-4">
       <div className="bg-white h-14 rounded-2xl shadow-lg p-4 flex items-center gap-4">
         <div className="flex-1 relative" ref={dropdownRef}>
           <div className="relative">
@@ -320,6 +321,7 @@ const SearchBar = () => {
             <input
               ref={searchInputRef}
               type="text"
+              data-cy="search-input"
               placeholder="Rechercher une activité, un utilisateur..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(sanitizeInput(e.target.value))}
@@ -328,6 +330,7 @@ const SearchBar = () => {
             />
             {searchTerm && (
               <button
+              data-cy="clear-search-btn"
                 onClick={clearSearch}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
               >
@@ -338,16 +341,18 @@ const SearchBar = () => {
           
           {/* Dropdown des résultats de recherche */}
           {isDropdownOpen && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border max-h-96 overflow-y-auto z-20">
+            <div
+            data-cy="search-dropdown"
+            className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border max-h-96 overflow-y-auto z-20">
               {isLoading && (
-                <div className="px-3 py-4 text-center text-gray-500">
+                <div data-cy="loading-indicator" className="px-3 py-4 text-center text-gray-500">
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-purple mx-auto"></div>
                   <div className="mt-2">Recherche en cours...</div>
                 </div>
               )}
               
               {error && (
-                <div className="px-3 py-4 text-center text-red-500">
+                <div data-cy="error-message" className="px-3 py-4 text-center text-red-500">
                   {error}
                 </div>
               )}
@@ -372,6 +377,7 @@ const SearchBar = () => {
         {/* Dropdown "Pour" */}
         <div className="relative" ref={forDropdownRef}>
           <button
+            data-cy="profile-filter-btn"
             onClick={() => {
               setIsForDropdownOpen(!isForDropdownOpen);
               setIsPriceDropdownOpen(false);
@@ -387,10 +393,11 @@ const SearchBar = () => {
           </button>
 
           {isForDropdownOpen && (
-            <div className="absolute top-full mt-2 bg-white rounded-xl shadow-lg border p-2 min-w-48 z-10">
+            <div data-cy="profile-dropdown" className="absolute top-full mt-2 bg-white rounded-xl shadow-lg border p-2 min-w-48 z-10">
               {profiles.map((profile) => (
                 <div
                   key={profile.id}
+                  data-cy={`profile-option-${profile.id}`}
                   onClick={() => handleProfileToggle(profile.id)}
                   className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg cursor-pointer"
                 >
@@ -415,6 +422,7 @@ const SearchBar = () => {
         {/* Dropdown "Prix" */}
         <div className="relative" ref={priceDropdownRef}>
           <button
+            data-cy="price-filter-btn"
             onClick={() => {
               setIsPriceDropdownOpen(!isPriceDropdownOpen);
               setIsForDropdownOpen(false);
@@ -430,10 +438,11 @@ const SearchBar = () => {
           </button>
 
           {isPriceDropdownOpen && (
-            <div className="absolute top-full mt-2 bg-white rounded-xl shadow-lg border p-2 min-w-40 z-10">
+            <div data-cy="price-dropdown" className="absolute top-full mt-2 bg-white rounded-xl shadow-lg border p-2 min-w-40 z-10">
               {priceRanges.map((price) => (
                 <div
                   key={price.id}
+                  data-cy={`price-option-${price.id}`}
                   onClick={() => handlePriceToggle(price.id)}
                   className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg cursor-pointer"
                 >
@@ -454,8 +463,9 @@ const SearchBar = () => {
             </div>
           )}
         </div>
-
+        {/* Bouton de recherche */}
         <Button 
+          data-cy="search-btn"
           onClick={() => performSearch(searchTerm)} 
           size={"rounded"} 
           variant="greenway"
@@ -467,12 +477,13 @@ const SearchBar = () => {
 
       {/* Indicateurs de sélection */}
       {(selectedProfiles.length > 0 || selectedPrices.length > 0) && (
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div data-cy="filter-indicators" className="mt-4 flex flex-wrap gap-2">
           {selectedProfiles.map((profileId) => {
             const profile = profiles.find((p) => p.id === profileId);
             return (
               <span
                 key={profileId}
+                data-cy={`selected-profile-${profileId}`}
                 className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm"
               >
                 {profile?.name}
@@ -484,6 +495,7 @@ const SearchBar = () => {
             return (
               <span
                 key={priceId}
+                data-cy={`selected-price-${priceId}`}
                 className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm"
               >
                 {price?.label}

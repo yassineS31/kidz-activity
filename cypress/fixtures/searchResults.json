@@ -1,0 +1,16 @@
+[
+  {
+    "type": "activite",
+    "id": 1,
+    "name": "Football pour enfants",
+    "url": "/activite/1",
+    "description": "Cours de football pour débutants"
+  },
+  {
+    "type": "utilisateur",
+    "id": 1,
+    "name": "Jean Dupont",
+    "url": "/utilisateur/1",
+    "role": "animateur"
+  }
+]
